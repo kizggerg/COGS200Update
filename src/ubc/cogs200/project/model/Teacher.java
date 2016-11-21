@@ -31,4 +31,14 @@ public class Teacher {
         return Collections.unmodifiableSet(classrooms);
     }
 
+    public void add(Classroom classroom) {
+        classrooms.add(classroom);
+    }
+
+    public void remove(Classroom classroom) {
+        classrooms.remove(classroom);
+    }
+
+
+
 }
