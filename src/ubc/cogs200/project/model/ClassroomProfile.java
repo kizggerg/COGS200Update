@@ -20,6 +20,11 @@ public class ClassroomProfile {
 
     private int numberOfStudents;
 
+    private int activistPercent;
+    private int pragmatistPercent;
+    private int theoristPercent;
+    private int reflectorPercent;
+
     public ClassroomProfile() {
         activistTotalScore = 0;
         theoristTotalScore = 0;
@@ -70,5 +75,21 @@ public class ClassroomProfile {
     }
 
 
+    public void getStats() {
+        int total = activistTotalScore + pragmatistTotalScore + theoristTotalScore + reflectorTotalScore;
+        System.out.println("your classroom is:");
+        activistPercent = activistTotalScore / total * 100;
+        System.out.println(activistPercent + "% Activist");
+        pragmatistPercent = pragmatistTotalScore / total * 100;
+        System.out.println(pragmatistPercent + "% Pragmatist");
+        theoristPercent = theoristTotalScore / total * 100;
+        System.out.println(theoristPercent + "% Theorist");
+        reflectorPercent = reflectorTotalScore / total * 100;
+        System.out.println(reflectorPercent + "% Reflector");
 
+    }
+
+    public void getRecommendations() {
+        System.out.println("No recommendations set yet");
+    }
 }
