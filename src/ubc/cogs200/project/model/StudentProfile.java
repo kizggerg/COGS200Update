@@ -7,22 +7,22 @@ package ubc.cogs200.project.model;
 
 public class StudentProfile {
     // Using the Honey and Mumford Learning Styles Model, a student is categorized into one of four learning styles:
-    private int actvist;
+    private int activist;
     private int theorist;
     private int pragmatist;
     private int reflector;
     // The int value compared with the total values determines the certainty that has one of these learning styles.
 
     public StudentProfile() {
-        this.actvist = 0;
+        this.activist = 0;
         this.theorist = 0;
         this.pragmatist = 0;
         this.reflector = 0;
     }
 
     // Getters
-    public int getActvistScore() {
-        return actvist;
+    public int getActivistScore() {
+        return activist;
     }
 
     public int getTheoristScore() {
@@ -39,12 +39,12 @@ public class StudentProfile {
 
     // Returns the score of all learning styles: not useful outside of class
     private int getAll() {
-        return actvist + theorist + pragmatist + reflector;
+        return activist + theorist + pragmatist + reflector;
     }
 
     //Setters: Current implementation only allows one point to be added at a time to each style
     public void addScoreActivist() {
-        actvist++;
+        activist++;
     }
 
     public void addScoreTheorist() {
@@ -61,14 +61,14 @@ public class StudentProfile {
 
     // Cleaerers: Clears the score for each or all learning style
     public void clearProfile() {
-        actvist = 0;
+        activist = 0;
         theorist = 0;
         pragmatist = 0;
         reflector = 0;
     }
 
     public void clearScoreActivist() {
-        actvist = 0;
+        activist = 0;
     }
 
     public void clearScoreTheorist() {
@@ -84,8 +84,8 @@ public class StudentProfile {
     }
 
     // Percenters: Return the ratio of the learning style to the total profile as a percent (% sign excluded).
-    public double percentActvistScore() {
-        return Math.round(actvist/(double)getAll() * 100.00);
+    public double percentActivistScore() {
+        return Math.round(activist/(double)getAll() * 100.00);
     }
 
     public double percentTheoristScore() {
@@ -101,6 +101,22 @@ public class StudentProfile {
     }
 
 
+    //Setters: Used for TeacherUI to read from a File
+    public void setActivist(int a) {
+        activist = a;
+    }
+
+    public void setTheorist(int a) {
+        theorist = a;
+    }
+
+    public void setPragmatist(int a) {
+        pragmatist = a;
+    }
+
+    public void setReflector(int a) {
+        reflector = a;
+    }
 
 
 

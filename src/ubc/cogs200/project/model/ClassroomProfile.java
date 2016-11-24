@@ -45,7 +45,7 @@ public class ClassroomProfile {
 
     public void updateAll(Student s) {
         StudentProfile student = s.getProfile();
-        updateScore(student.getActvistScore(), (student.percentActvistScore() / 100.00), 0);
+        updateScore(student.getActivistScore(), (student.percentActivistScore() / 100.00), 0);
         updateScore(student.getTheoristScore(), (student.percentTheoristScore() / 100.00), 1);
         updateScore(student.getPragmatistScore(), (student.percentPragmatistScore() / 100.00), 2);
         updateScore(student.getReflectorScore(), (student.percentReflectorScore() / 100.00), 3);
