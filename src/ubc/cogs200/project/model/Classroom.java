@@ -7,7 +7,6 @@ import java.util.Set;
 
 /**
  * Created by Greg on 2016-11-17.
- * Singleton Design Pattern
  */
 public class Classroom implements Iterable<Student> {
     private Teacher teacher;
@@ -30,6 +29,7 @@ public class Classroom implements Iterable<Student> {
     }
 
     // MIGHT NOT NEED?
+    // Need for TeacherUI - Aaron
     public ClassroomProfile getProfile() {
         return profile;
     }

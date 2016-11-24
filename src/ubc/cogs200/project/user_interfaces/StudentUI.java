@@ -29,7 +29,8 @@ public class StudentUI {
         String name = sc.nextLine();
         System.out.println("What is your student number?");
         String number = sc.nextLine();
-        ubc.cogs200.project.model.Student s = new ubc.cogs200.project.model.Student(name, number);
+        Student s = new Student(name, number);
+
 
         System.out.println("Thank you. Please answer the following questions to the best of your ability.");
 
@@ -74,7 +75,7 @@ public class StudentUI {
     }
 
     // Updates the model if the given boolean is true
-    private static void updateProfile(ubc.cogs200.project.model.Student s, int style, boolean update) {
+    private static void updateProfile(Student s, int style, boolean update) {
         if (update) {
             switch (style) {
                 case 0: s.getProfile().addScoreActivist();

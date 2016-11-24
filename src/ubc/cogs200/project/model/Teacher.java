@@ -31,4 +31,19 @@ public class Teacher {
         return Collections.unmodifiableSet(classrooms);
     }
 
+    public void add(Classroom classroom) {
+        classrooms.add(classroom);
+    }
+
+    public void remove(Classroom classroom) {
+        classrooms.remove(classroom);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 }
