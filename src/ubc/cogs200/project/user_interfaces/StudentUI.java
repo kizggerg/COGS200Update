@@ -52,7 +52,7 @@ public class StudentUI {
         // Add student to Classroom
         System.out.println("This is the end of the questionaire.");
         System.out.println("Your learning style is:");
-        System.out.println(s.getProfile().percentActvistScore() + "% activist learner.");
+        System.out.println(s.getProfile().percentActivistScore() + "% activist learner.");
         System.out.println(s.getProfile().percentTheoristScore() + "% theorist learner.");
         System.out.println(s.getProfile().percentPragmatistScore() + "% pragmatist learner.");
         System.out.println(s.getProfile().percentReflectorScore() + "% reflector learner.");
