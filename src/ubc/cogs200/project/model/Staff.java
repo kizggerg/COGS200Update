@@ -1,6 +1,8 @@
 package ubc.cogs200.project.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -48,6 +50,29 @@ public class Staff {
             }
         }
 
+        return result;
+    }
+
+    public Teacher getTeacherinSystem(String number) {
+        Teacher t = new Teacher("", number);
+        Teacher result = null;
+
+        for (Teacher teacher : teachers) {
+            if (teacher.equals(t)) result = teacher;
+        }
+
+        return result;
+    }
+
+    public List<Classroom> getAllClassrooms() {
+        List<Classroom> result = new ArrayList<>();
+
+        for (Teacher t : teachers) {
+            Set<Classroom> classes = t.getClassrooms();
+            if (classes != null) {
+            result.addAll(t.getClassrooms());
+            }
+        }
         return result;
     }
 

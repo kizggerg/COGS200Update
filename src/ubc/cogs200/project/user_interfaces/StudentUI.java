@@ -1,5 +1,6 @@
 package ubc.cogs200.project.user_interfaces;
 
+import ubc.cogs200.project.model.Classroom;
 import ubc.cogs200.project.model.Staff;
 import ubc.cogs200.project.model.Student;
 import java.util.Scanner;
@@ -9,13 +10,17 @@ import java.util.zip.DataFormatException;
 public class StudentUI extends AbstractUI {
     Scanner input = new Scanner(System.in);
     Student student;
+    Classroom theClass;
 
-    public void initializeUI() {
+    protected void initializeUI() {
         login();
         askToBegin();
+        System.out.println("The questionnaire has begun. Have fun!");
+        //TODO: Implement Questionnaire
+        //TODO: Write Data from Questionnaire to JSON File
     }
 
-    private void login() {
+    protected void login() {
         System.out.println();
         System.out.println("Hello Student! What is your name?");
         String name = input.nextLine();
@@ -24,19 +29,27 @@ public class StudentUI extends AbstractUI {
         determineIfAlreadyInSystem(name, number);
     }
 
-    private void determineIfAlreadyInSystem(String name, String number) {
+    protected void determineIfAlreadyInSystem(String name, String number) {
         Student s = Staff.getInstance().getStudentinSystem(number);
 
         if (s == null) {
             System.out.println("Welcome " + name + ". We hope you enjoy your first time doing our questionnaire!");
             student = new Student(name, number);
+            chooseClassroom();
         }
         else {
             System.out.println("Welcome back " + name + "! Thanks for taking our questionnaire again :) We hope its just as fun as before.");
             student = s;
             student.getProfile().clearProfile();
+            chooseClassroom();
         }
     }
+
+    protected void chooseClassroom() {
+
+    }
+
+
 
     private void askToBegin() {
         System.out.println();
@@ -51,38 +64,6 @@ public class StudentUI extends AbstractUI {
         while (!(input.nextLine().toLowerCase().equals("begin"))) {
             System.out.println("Type 'begin' to start the questionnaire.");
         }
-        System.out.println("The questionnaire has begun. Have fun!");
-
-    }
-
-
-    // Returns 0 for activist, 1 for theorist, 2 for pragmatist, and 3 for reflector.
-    private static int parseStyleType(String style) throws DataFormatException {
-        switch (style.toLowerCase()) {
-            case "activist" : return 0;
-            case "theorist" : return 1;
-            case "pragmatist" : return 2;
-            case "reflector" : return 3;
-            default: throw new DataFormatException();
-        }
-    }
-
-    // Computes the student answer in a way that is meaningful to the Student Model
-    private static boolean parseAnswer(String answer) {
-        return (answer.toLowerCase().equals("yes"));
-    }
-
-    // Updates the model if the given boolean is true
-    private static void updateProfile(Student s, int style, boolean update) {
-        if (update) {
-            switch (style) {
-                case 0: s.getProfile().addScoreActivist();
-                case 1: s.getProfile().addScoreTheorist();
-                case 2: s.getProfile().addScorePragmatist();
-                case 3: s.getProfile().addScoreReflector();
-            }
-        }
-
     }
 
 }

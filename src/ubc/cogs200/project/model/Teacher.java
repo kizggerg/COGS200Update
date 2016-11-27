@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class Teacher {
     private String name;
-    private String id;
+    private String id;   //Each ID is unique to a teacher
     private Set<Classroom> classes;
 
     public Teacher(String name, String number) {
@@ -55,4 +55,19 @@ public class Teacher {
     public void clearClasses() {classes.clear();}
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Teacher teacher = (Teacher) o;
+
+        return id.equals(teacher.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

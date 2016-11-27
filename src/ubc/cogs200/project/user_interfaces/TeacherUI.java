@@ -1,14 +1,21 @@
 package ubc.cogs200.project.user_interfaces;
 
 import ubc.cogs200.project.model.Classroom;
+import ubc.cogs200.project.model.Staff;
 import ubc.cogs200.project.model.Teacher;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class TeacherUI extends AbstractUI{
-    //TODO: Fix UI
+    Scanner input = new Scanner(System.in);
+    Teacher teacher;
+    Boolean newProfile;
+    Classroom theClass;
 
     // List of Classrooms
     // Select classroom
@@ -16,42 +23,84 @@ public class TeacherUI extends AbstractUI{
     //     - Number of Student
     //     - Stats of Classroom
     //     - Recommendations
-    public void initializeUI() {
+    protected void initializeUI() {
 
-        System.out.println("You are now in the Teacher UI!");
-        System.exit(0);
-        Scanner in = new Scanner(System.in);
+        login();
+        chooseClassroom();
 
-        System.out.println("Welcome! Enter your first and last name:");
-        String input = in.nextLine();
-        String name = input;
-        System.out.println("Enter your ID number:");
-        input = in.nextLine();
-        String number = input;
-
-        Teacher teacher = new Teacher(name, number);
-        System.out.println("Retrieving Classrooms... Please Wait One Moment");
+        if (newProfile) {
+            createProfile();
+        }
+        else retrieveData();
 
         for (Classroom classroom : teacher.getClassrooms()) {
             classroom.getProfile().getStats();
-            classroom.getProfile().getRecommendations();
+            classroom.getProfile().getRecommendations();}
     }
 
+    protected void login() {
+            System.out.println();
+            System.out.println("Hello Teacher! What is your name?");
+            String name = input.nextLine();
+            System.out.println("Hi " + name + "! Please enter your ID number:");
+            String number = input.nextLine();
+            determineIfAlreadyInSystem(name, number);
     }
 
-    private void updateModel() throws FileNotFoundException {
-        File model = new File("./data/data.json");
-        Scanner data = new Scanner(model);
-        String teacherData = data.nextLine();
-    }
 
-    private void parseTeacher(String data) {
-        String accum;
+    protected void determineIfAlreadyInSystem(String name, String number) {
+        Teacher t = Staff.getInstance().getTeacherinSystem(number);
 
-        for (int i = 0; i < data.length(); i++) {
+        if (t == null) {
+            System.out.println("Welcome " + name + ". Before we begin, let's create a profile!");
+            teacher = new Teacher(name, number);
+            newProfile = true;
+        }
 
-
-
+        else {
+            System.out.println("Welcome " + name + ".");
+            teacher = t;
+            newProfile = false;
         }
     }
+
+    //TODO: Implement this so teacher can only see her/his classes.
+    //TODO: Copy this code to the student UI.
+    protected void chooseClassroom() {
+        List<Classroom> classes = Staff.getInstance().getAllClassrooms();
+        System.out.println("Please choose the classroom you wish to examine:");
+
+        for (int i = 0; i < classes.size(); i++) {
+            System.out.println((i+1) + ". " + classes.get(i).getCourseCode() + ": " +
+                    classes.get(i).getName());
+        }
+        System.out.println();
+        System.out.println("Simply enter the number which corresponds to the classroom you wish to examine:");
+
+        Boolean continueLoop = true;
+        Integer response = -1;
+
+        while (continueLoop) {
+            try {
+                response = Integer.parseInt(input.nextLine().trim());
+                if (response > 0 && response <= classes.size()) continueLoop = false;
+                else  System.out.println("Simply enter the number which corresponds to the classroom you wish to examine:");
+            } catch (NumberFormatException e) {
+                System.out.println("Simply enter the number which corresponds to the classroom you wish to examine:");
+            }
+        }
+
+        theClass = classes.get(response - 1);
+
+    }
+
+    private void createProfile() {
+        //TODO: Implement Method
+    }
+
+    private void retrieveData() {
+
+    }
+
+
 }

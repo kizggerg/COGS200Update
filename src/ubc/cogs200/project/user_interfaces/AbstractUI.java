@@ -18,7 +18,13 @@ public abstract class AbstractUI {
         chooseUI();
     }
 
-    public abstract void initializeUI();
+    protected abstract void initializeUI();
+
+    protected abstract void login();
+
+    protected abstract void determineIfAlreadyInSystem(String name, String number);
+
+    protected abstract void chooseClassroom();
 
     /**
      * Updates the internal state by parsing from the data files.
