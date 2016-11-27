@@ -37,6 +37,13 @@ public class StudentProfile {
     }
 
     //Setters:
+    public void setAll(int activist, int theorist, int pragmatist, int reflector) {
+        this.activist = activist;
+        this.theorist = theorist;
+        this.pragmatist = pragmatist;
+        this.reflector = reflector;
+    }
+
     public void setActivist(int a) {
         activist = a;
     }

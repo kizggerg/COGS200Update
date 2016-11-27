@@ -46,3 +46,13 @@ I like meetings to be run on methodical lines, sticking to laid down agenda, etc
 Theorist
 I find the formality of having specific objectives and plans stifling
 Activist
+I understand something better after I try it out
+Activist
+I tend to understand details of a subject but may be fuzzy about its overall structure.
+Pragmatist
+When I’m learning something new, it helps me to talk about it.
+Reflector
+When given a body of information I am more likely to remember details but miss the big picture.
+Pragmatist
+When writing a paper, I write think of the big ideas first before I think about the details.
+Theorist

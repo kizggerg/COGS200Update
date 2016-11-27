@@ -1,6 +1,8 @@
 package ubc.cogs200.project.model;
 
 
+import java.util.Set;
+
 /**
  * The Statistics of the Classroom given Uncertainty in Student Modelling.
  */
@@ -32,6 +34,21 @@ public class ClassroomProfile {
 
     public double getReflectorScore() {
         return reflectorScore;
+    }
+
+    public void clearProfile() {
+        activistScore = 0;
+        theoristScore = 0;
+        pragmatistScore = 0;
+        reflectorScore = 0;
+    }
+
+    public void updateProfile(Set<Student> students) {
+        clearProfile();
+
+        for (Student s : students) {
+            updateScore(s);
+        }
     }
 
     private void updateScore(Student s) {

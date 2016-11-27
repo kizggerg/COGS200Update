@@ -23,6 +23,10 @@ public class Student {
         return studentNumber;
     }
 
+    public StudentProfile getProfile() {
+        return profile;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -31,8 +35,6 @@ public class Student {
         this.studentNumber = studentNumber;
     }
 
-    public StudentProfile getProfile() {
-        return profile;
-    }
+    public void setProfile(StudentProfile profile) {this.profile = profile;}
 
 }

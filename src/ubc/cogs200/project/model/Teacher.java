@@ -46,9 +46,13 @@ public class Teacher {
         classes.add(classroom);
     }
 
+    public void addAll(Set<Classroom> classes) {this.classes.addAll(classes);}
+
     public void remove(Classroom classroom) {
         classes.remove(classroom);
     }
+
+    public void clearClasses() {classes.clear();}
 
 
 }

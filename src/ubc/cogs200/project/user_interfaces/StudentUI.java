@@ -1,18 +1,18 @@
 package ubc.cogs200.project.user_interfaces;
 
-import ubc.cogs200.project.model.Classroom;
+import org.json.JSONException;
 import ubc.cogs200.project.model.Student;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.zip.DataFormatException;
 
 public class StudentUI {
+    //TODO: Fix UI
 
-    public static void main(String[] args) throws FileNotFoundException, DataFormatException{
+    public static void main(String[] args) throws FileNotFoundException, DataFormatException, JSONException{
 
-        File file = new File("./data/questions.txt"); // THE SOURCE OF THIS FILE WILL NEED TO BE CHANGED
+        File file = new File("./data/questions.txt");
         Scanner sc = new Scanner(System.in);
 
         System.out.println("This is a very crude implementation of what a student would see in their questionaire.");
@@ -52,10 +52,10 @@ public class StudentUI {
         // Add student to Classroom
         System.out.println("This is the end of the questionaire.");
         System.out.println("Your learning style is:");
-        System.out.println(s.getProfile().percentActivistScore() + "% activist learner.");
-        System.out.println(s.getProfile().percentTheoristScore() + "% theorist learner.");
-        System.out.println(s.getProfile().percentPragmatistScore() + "% pragmatist learner.");
-        System.out.println(s.getProfile().percentReflectorScore() + "% reflector learner.");
+        System.out.println(s.getProfile().certaintyActivistScore()*100 + "% activist learner.");
+        System.out.println(s.getProfile().certaintyTheoristScore()*100 + "% theorist learner.");
+        System.out.println(s.getProfile().certaintyPragmatistScore()*100 + "% pragmatist learner.");
+        System.out.println(s.getProfile().certaintyReflectorScore()*100 + "% reflector learner.");
     }
 
     // Returns 0 for activist, 1 for theorist, 2 for pragmatist, and 3 for reflector.

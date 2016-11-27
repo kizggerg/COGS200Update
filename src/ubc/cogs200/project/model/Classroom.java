@@ -51,11 +51,21 @@ public class Classroom implements Iterable<Student> {
         students.add(s);
     }
 
+    public void addAllStudent(Set<Student> students) {this.students.addAll(students);}
+
     public void removeStudent(Student s) {students.remove(s);}
+
+    public void clearClassroom() {students.clear();}
+
+    public void updateClassroom() {
+        profile.updateProfile(students);
+    }
 
     public int getNumberOfStudents() {
         return students.size();
     }
+
+
 
     @Override
     public Iterator<Student> iterator() {
