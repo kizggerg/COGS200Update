@@ -1,0 +1,253 @@
+[
+  {
+    "name"    : "John Keating",
+    "ID"      : "12345678",
+    "classes" :
+    [
+      {
+        "name"     : "Poetry",
+        "code"     : "POE101",
+        "students" :
+        [
+          {
+            "name"     : "William Shakespeare",
+            "number"   : "88442200",
+            "profile"  :
+            {
+              "activist"   : 5,
+              "theorist"   : 8,
+              "pragmatist" : 13,
+              "reflector"  : 22
+            }
+          },
+          {
+            "name"     : "Charles Dickens",
+            "number"   : "21892189",
+            "profile"  :
+            {
+              "activist"   : 10,
+              "theorist"   : 19,
+              "pragmatist" : 13,
+              "reflector"  : 7
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name"    : "Dewey Finn",
+    "ID"      : "8675309",
+    "classes" :
+    [
+      {
+        "name"     : "History",
+        "code"     : "HIST101",
+        "students" :
+        [
+          {
+            "name": "Bill Clinton",
+            "number": "77766655",
+            "profile":
+            {
+              "activist": 7,
+              "theorist": 16,
+              "pragmatist": 20,
+              "reflector": 1
+            }
+          },
+          {
+            "name": "Donald Trump",
+            "number": "000999000",
+            "profile":
+            {
+              "activist": 10,
+              "theorist": 0,
+              "pragmatist": 23,
+              "reflector": 3
+            }
+          },
+          {
+            "name": "Sam Harris",
+            "number": "889012345",
+            "profile":
+            {
+              "activist": 1,
+              "theorist": 18,
+              "pragmatist": 4,
+              "reflector": 29
+            }
+          },
+          {
+            "name": "Morty Smith",
+            "number": "15910294",
+            "profile":
+            {
+              "activist": 13,
+              "theorist": 7,
+              "pragmatist": 20,
+              "reflector": 19
+            }
+          },
+          {
+            "name": "Justin Trudeau",
+            "number": "999123456",
+            "profile":
+            {
+              "activist": 23,
+              "theorist": 8,
+              "pragmatist": 15,
+              "reflector": 10
+            }
+          },
+          {
+            "name": "Pierre Trudeau",
+            "number": "001100110011",
+            "profile":
+            {
+              "activist": 2,
+              "theorist": 24,
+              "pragmatist": 15,
+              "reflector": 20
+            }
+          },
+          {
+            "name": "Steve Jobs",
+            "number": "0800880080",
+            "profile":
+            {
+              "activist": 19,
+              "theorist": 29,
+              "pragmatist": 10,
+              "reflector": 15
+            }
+          },
+          {
+            "name": "Thomas Hobbes",
+            "number": "1209120912091209",
+            "profile":
+            {
+              "activist": 0,
+              "theorist": 28,
+              "pragmatist": 1,
+              "reflector": 10
+            }
+          },
+          {
+            "name": "Nick Cage",
+            "number": "567789567789",
+            "profile":
+            {
+              "activist": 25,
+              "theorist": 5,
+              "pragmatist": 30,
+              "reflector": 0
+            }
+          },
+          {
+            "name": "Billy Joel",
+            "number": "90807060",
+            "profile":
+            {
+              "activist": 17,
+              "theorist": 11,
+              "pragmatist": 15,
+              "reflector": 26
+            }
+          },
+          {
+            "name": "Peter Griffin",
+            "number": "7777777777",
+            "profile":
+            {
+              "activist": 29,
+              "theorist": 0,
+              "pragmatist": 10,
+              "reflector": 0
+            }
+          },
+          {
+            "name": "Jerry Seinfeld",
+            "number": "8020501090",
+            "profile":
+            {
+              "activist": 5,
+              "theorist": 10,
+              "pragmatist": 27,
+              "reflector": 20
+            }
+          },
+          {
+            "name": "Louis CK",
+            "number": "5723694891",
+            "profile":
+            {
+              "activist": 2,
+              "theorist": 13,
+              "pragmatist": 26,
+              "reflector": 20
+            }
+          },
+          {
+            "name": "Lana Kaine",
+            "number": "6720102729",
+            "profile":
+            {
+              "activist": 21,
+              "theorist": 17,
+              "pragmatist": 19,
+              "reflector": 20
+            }
+          },
+          {
+            "name": "Yoko Ono",
+            "number": "92819282",
+            "profile":
+            {
+              "activist": 30,
+              "theorist": 15,
+              "pragmatist": 1,
+              "reflector": 17
+            }
+          },
+          {
+            "name": "Emma Stone",
+            "number": "0427491791",
+            "profile":
+            {
+              "activist": 17,
+              "theorist": 11,
+              "pragmatist": 19,
+              "reflector": 15
+            }
+          }
+        ]
+      },
+      {
+        "name"     : "The Art of Rocking",
+        "code"     : "ROCK210",
+        "students" :
+        [
+          {
+            "name": "Jack Black",
+            "number": "66666666",
+            "profile": {
+              "activist": 25,
+              "theorist": 5,
+              "pragmatist": 17,
+              "reflector": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name"    : "Yoda",
+    "ID"      : "87654321",
+    "classes" :
+    [
+
+    ]
+  }
+]

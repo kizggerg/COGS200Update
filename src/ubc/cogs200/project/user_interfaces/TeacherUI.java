@@ -36,7 +36,7 @@ public class TeacherUI {
     }
 
     private void updateModel() throws FileNotFoundException {
-        File model = new File("./data/model.txt");
+        File model = new File("./data/data.json");
         Scanner data = new Scanner(model);
         String teacherData = data.nextLine();
     }
