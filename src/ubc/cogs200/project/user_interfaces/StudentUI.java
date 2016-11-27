@@ -1,62 +1,60 @@
 package ubc.cogs200.project.user_interfaces;
 
-import org.json.JSONException;
+import ubc.cogs200.project.model.Staff;
 import ubc.cogs200.project.model.Student;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.zip.DataFormatException;
 
-public class StudentUI {
-    //TODO: Fix UI
+// todo: Implement questionnaire
+public class StudentUI extends AbstractUI {
+    Scanner input = new Scanner(System.in);
+    Student student;
 
-    public static void main(String[] args) throws FileNotFoundException, DataFormatException, JSONException{
-
-        File file = new File("./data/questions.txt");
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("This is a very crude implementation of what a student would see in their questionaire.");
-        System.out.println("This UI is meant to serve for modeling purposes only.");
-        System.out.println("Type 'begin' to start the questionaire.");
-        String input = sc.nextLine().toLowerCase();
-        while (!(input.equals("begin"))) {
-            System.out.println("Type 'begin' to start the questionaire.");
-            input = sc.nextLine().toLowerCase();
-        }
-        System.out.println("The questionnaire has begun.");
-
-        System.out.println("What is your name:");
-        String name = sc.nextLine();
-        System.out.println("What is your student number?");
-        String number = sc.nextLine();
-        Student s = new Student(name, number);
-
-
-        System.out.println("Thank you. Please answer the following questions to the best of your ability.");
-
-        // THIS IS A TEMPORARY IMPLEMENTATION OF THE QUESTIONAIRE
-        Scanner questions = new Scanner(file);
-        String line;
-        int style;
-
-        while (questions.hasNextLine()) {
-            line = questions.nextLine();
-            System.out.println(line);
-            System.out.println("Type 'yes' (without quotations) if you agree with the statement, type 'no' (without quotations) if you disagree, and type anything else if you don't know:");
-            input = sc.next();
-            line = questions.nextLine();
-            style = parseStyleType(line);
-            updateProfile(s, style, parseAnswer(input));
-        }
-        questions.close();
-        // Add student to Classroom
-        System.out.println("This is the end of the questionaire.");
-        System.out.println("Your learning style is:");
-        System.out.println(s.getProfile().certaintyActivistScore()*100 + "% activist learner.");
-        System.out.println(s.getProfile().certaintyTheoristScore()*100 + "% theorist learner.");
-        System.out.println(s.getProfile().certaintyPragmatistScore()*100 + "% pragmatist learner.");
-        System.out.println(s.getProfile().certaintyReflectorScore()*100 + "% reflector learner.");
+    public void initializeUI() {
+        login();
+        askToBegin();
     }
+
+    private void login() {
+        System.out.println();
+        System.out.println("Hello Student! What is your name?");
+        String name = input.nextLine();
+        System.out.println("Hi " + name + "! Please enter your student number:");
+        String number = input.nextLine();
+        determineIfAlreadyInSystem(name, number);
+    }
+
+    private void determineIfAlreadyInSystem(String name, String number) {
+        Student s = Staff.getInstance().getStudentinSystem(number);
+
+        if (s == null) {
+            System.out.println("Welcome " + name + ". We hope you enjoy your first time doing our questionnaire!");
+            student = new Student(name, number);
+        }
+        else {
+            System.out.println("Welcome back " + name + "! Thanks for taking our questionnaire again :) We hope its just as fun as before.");
+            student = s;
+            student.getProfile().clearProfile();
+        }
+    }
+
+    private void askToBegin() {
+        System.out.println();
+        System.out.println("In this questionnaire, we will try to determine how your individual style of learning.");
+        System.out.println("These styles can be very different from your other classmates, and so teaching to a group of various different learners can be challenging");
+        System.out.println("We want to make it possible for everyone to learn better by giving your teacher better data on how you learn.");
+        System.out.println();
+        System.out.println("We will ask you a series of questions. All you need to do is to type 'agree' if your agree with the statement.");
+        System.out.println("If you disagree with the statement, are neutral, or just generally don't know, you can enter anything else, as long as its not 'agree'!");
+        System.out.println("Best of luck, and have fun!");
+        System.out.println("When you are ready, type 'begin' to start the questionnaire.");
+        while (!(input.nextLine().toLowerCase().equals("begin"))) {
+            System.out.println("Type 'begin' to start the questionnaire.");
+        }
+        System.out.println("The questionnaire has begun. Have fun!");
+
+    }
+
 
     // Returns 0 for activist, 1 for theorist, 2 for pragmatist, and 3 for reflector.
     private static int parseStyleType(String style) throws DataFormatException {

@@ -51,6 +51,13 @@ public class Classroom implements Iterable<Student> {
         students.add(s);
     }
 
+    public Student getStudent(Student s) {
+        for (Student student : students) {
+            if (student.equals(s)) return student;
+        }
+        return null;
+    }
+
     public void addAllStudent(Set<Student> students) {this.students.addAll(students);}
 
     public void removeStudent(Student s) {students.remove(s);}

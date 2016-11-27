@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class TeacherUI {
+public class TeacherUI extends AbstractUI{
     //TODO: Fix UI
 
     // List of Classrooms
@@ -16,7 +16,10 @@ public class TeacherUI {
     //     - Number of Student
     //     - Stats of Classroom
     //     - Recommendations
-    public static void main(String[] args) throws FileNotFoundException {
+    public void initializeUI() {
+
+        System.out.println("You are now in the Teacher UI!");
+        System.exit(0);
         Scanner in = new Scanner(System.in);
 
         System.out.println("Welcome! Enter your first and last name:");

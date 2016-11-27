@@ -6,7 +6,7 @@ package ubc.cogs200.project.model;
 public class Student {
 
     private String name;
-    private String studentNumber;
+    private String studentNumber; // Unique for every Student
     private StudentProfile profile;
 
     public Student(String name, String studentNumber) {
@@ -37,4 +37,19 @@ public class Student {
 
     public void setProfile(StudentProfile profile) {this.profile = profile;}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return studentNumber.equals(student.studentNumber);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return studentNumber.hashCode();
+    }
 }

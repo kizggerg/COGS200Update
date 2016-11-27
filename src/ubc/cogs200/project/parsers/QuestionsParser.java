@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Created by greggzik on 2016-11-27.
+ * Used to update internal state of Questionnaire.
  */
 public class QuestionsParser {
     File file;

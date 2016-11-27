@@ -38,5 +38,18 @@ public class Staff {
         teachers.clear();
     }
 
+    public Student getStudentinSystem(String number) {
+        Student s = new Student("", number);
+        Student result = null;
+
+        for (Teacher t : teachers) {
+            for (Classroom c : t.getClassrooms()) {
+                result = c.getStudent(s);
+            }
+        }
+
+        return result;
+    }
+
 
 }
