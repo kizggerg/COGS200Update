@@ -6,45 +6,61 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created by Greg on 2016-11-17.
+ * A Classroom
  */
 public class Classroom implements Iterable<Student> {
-    private Teacher teacher;
-    private Set<Student> students;
+    private String name;
+    private String code;
     private ClassroomProfile profile;
+    private Set<Student> students;
 
-    public Classroom(Teacher teacher) {
-        this.teacher = teacher;
+
+    public Classroom(String name, String courseCode) {
+        this.name = name;
+        this.code = courseCode;
         students = new HashSet<>();
         profile = new ClassroomProfile();
     }
 
+    // Getters
+    public String getName() {return name;}
 
-    public Teacher getTeacher() {
-        return teacher;
+    public String getCourseCode() {
+        return code;
     }
 
     public Set<Student> getStudents() {
         return Collections.unmodifiableSet(students);
     }
 
-    // MIGHT NOT NEED?
-    // Need for TeacherUI - Aaron
     public ClassroomProfile getProfile() {
         return profile;
     }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 
     public void addStudent(Student s) {
         students.add(s);
     }
 
+    public void removeStudent(Student s) {students.remove(s);}
+
     public int getNumberOfStudents() {
         return students.size();
     }
-
 
     @Override
     public Iterator<Student> iterator() {
         return students.iterator();
     }
+
+
 }

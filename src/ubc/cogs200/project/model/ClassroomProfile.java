@@ -2,94 +2,63 @@ package ubc.cogs200.project.model;
 
 
 /**
- * Created by Greg on 2016-11-18.
+ * The Statistics of the Classroom given Uncertainty in Student Modelling.
  */
 public class ClassroomProfile {
-    // Temporary Implementation of Fields
-    private Classroom thisClass;
-
-    private int activistTotalScore;
-    private int theoristTotalScore;
-    private int pragmatistTotalScore;
-    private int reflectorTotalScore;
-
-    private double activistUncertainScore;
-    private double theoristUncertainScore;
-    private double pragmatistUncertainScore;
-    private double reflectorUncertainScore;
-
-    private int numberOfStudents;
-
-    private int activistPercent;
-    private int pragmatistPercent;
-    private int theoristPercent;
-    private int reflectorPercent;
+    private double activistScore;
+    private double theoristScore;
+    private double pragmatistScore;
+    private double reflectorScore;
 
     public ClassroomProfile() {
-        activistTotalScore = 0;
-        theoristTotalScore = 0;
-        pragmatistTotalScore = 0;
-        reflectorTotalScore = 0;
-
-        activistUncertainScore = 0.00;
-        theoristUncertainScore = 0.00;
-        pragmatistUncertainScore = 0.00;
-        reflectorUncertainScore = 0.00;
+        activistScore = 0;
+        theoristScore = 0;
+        pragmatistScore = 0;
+        reflectorScore = 0;
     }
 
-    public void parseClassroomData() {
-        for (Student s : thisClass) {
-            updateAll(s);
-        }
+    // Getters:
+    public double getActivistScore() {
+        return activistScore;
     }
 
-    public void updateAll(Student s) {
-        StudentProfile student = s.getProfile();
-        updateScore(student.getActivistScore(), (student.percentActivistScore() / 100.00), 0);
-        updateScore(student.getTheoristScore(), (student.percentTheoristScore() / 100.00), 1);
-        updateScore(student.getPragmatistScore(), (student.percentPragmatistScore() / 100.00), 2);
-        updateScore(student.getReflectorScore(), (student.percentReflectorScore() / 100.00), 3);
+    public double getTheoristScore() {
+        return theoristScore;
     }
 
-
-    private void updateScore(int total, double uncertain, int type) {
-        // type is: 0 for activist, 1 for theorist, 2 for pragmatist, and 3 for reflector.
-        switch (type) {
-            case 0 : {
-                activistTotalScore += total;
-                activistUncertainScore += total*uncertain;
-            }
-            case 1 : {
-                theoristTotalScore += total;
-                theoristUncertainScore += total*uncertain;
-            }
-            case 2 : {
-                pragmatistTotalScore += total;
-                pragmatistUncertainScore += total*uncertain;
-            }
-            case 3 : {
-                reflectorTotalScore += total;
-                pragmatistUncertainScore += total*uncertain;
-            }
-        }
+    public double getPragmatistScore() {
+        return pragmatistScore;
     }
 
+    public double getReflectorScore() {
+        return reflectorScore;
+    }
 
+    private void updateScore(Student s) {
+        activistScore   += s.getProfile().certaintyActivistScore();
+        theoristScore   += s.getProfile().certaintyTheoristScore();
+        pragmatistScore += s.getProfile().certaintyPragmatistScore();
+        reflectorScore  += s.getProfile().certaintyReflectorScore();
+    }
+
+    // This seems more like UI behaviour -> Better for Cohesion
     public void getStats() {
-        int total = activistTotalScore + pragmatistTotalScore + theoristTotalScore + reflectorTotalScore;
+        double total = activistScore + pragmatistScore + theoristScore + reflectorScore;
         System.out.println("your classroom is:");
-        activistPercent = activistTotalScore / total * 100;
+        double activistPercent = activistScore / total * 100.00;
         System.out.println(activistPercent + "% Activist");
-        pragmatistPercent = pragmatistTotalScore / total * 100;
+        double pragmatistPercent = pragmatistScore / total * 100.00;
         System.out.println(pragmatistPercent + "% Pragmatist");
-        theoristPercent = theoristTotalScore / total * 100;
+        double theoristPercent = theoristScore / total * 100.00;
         System.out.println(theoristPercent + "% Theorist");
-        reflectorPercent = reflectorTotalScore / total * 100;
+        double reflectorPercent = reflectorScore / total * 100.00;
         System.out.println(reflectorPercent + "% Reflector");
 
     }
 
+    // This seems like behaviour for another class -> Better for Cohesion
     public void getRecommendations() {
         System.out.println("No recommendations set yet");
     }
+
 }

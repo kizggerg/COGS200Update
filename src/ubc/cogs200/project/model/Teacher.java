@@ -5,45 +5,50 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Aaron on 11/17/2016.
- * Edited by Greg on 11/18/2016.
+ * A Teacher
  */
 public class Teacher {
     private String name;
-    private String number;
-    private Set<Classroom> classrooms;
+    private String id;
+    private Set<Classroom> classes;
 
     public Teacher(String name, String number) {
         this.name = name;
-        this.number = number;
-        classrooms = new HashSet<>();
+        this.id = number;
+        classes = new HashSet<>();
     }
 
+    // Getters
     public String getName() {
         return name;
     }
 
     public String getNumber() {
-        return number;
+        return id;
     }
 
     public Set<Classroom> getClassrooms() {
-        return Collections.unmodifiableSet(classrooms);
+        return Collections.unmodifiableSet(classes);
     }
 
-    public void add(Classroom classroom) {
-        classrooms.add(classroom);
-    }
-
-    public void remove(Classroom classroom) {
-        classrooms.remove(classroom);
-    }
-
+    // Setters
     public void setName(String name) {
         this.name = name;
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.id = number;
     }
+
+
+
+    public void add(Classroom classroom) {
+        classes.add(classroom);
+    }
+
+    public void remove(Classroom classroom) {
+        classes.remove(classroom);
+    }
+
+
 }

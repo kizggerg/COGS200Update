@@ -1,8 +1,7 @@
 package ubc.cogs200.project.model;
 
 /**
- * Created by Aaron on 11/10/2016.
- * Edited by Greg on 11/17/2016
+ * The Statistics of a Student's Learning Style
  */
 
 public class StudentProfile {
@@ -37,12 +36,23 @@ public class StudentProfile {
         return reflector;
     }
 
-    // Returns the score of all learning styles: not useful outside of class
-    private int getAll() {
-        return activist + theorist + pragmatist + reflector;
+    //Setters:
+    public void setActivist(int a) {
+        activist = a;
     }
 
-    //Setters: Current implementation only allows one point to be added at a time to each style
+    public void setTheorist(int a) {
+        theorist = a;
+    }
+
+    public void setPragmatist(int a) {
+        pragmatist = a;
+    }
+
+    public void setReflector(int a) {
+        reflector = a;
+    }
+
     public void addScoreActivist() {
         activist++;
     }
@@ -83,41 +93,26 @@ public class StudentProfile {
         reflector = 0;
     }
 
-    // Percenters: Return the ratio of the learning style to the total profile as a percent (% sign excluded).
-    public double percentActivistScore() {
-        return Math.round(activist/(double)getAll() * 100.00);
+    // Certainty: Returns the likelihood student maps to one learning style.
+    public double certaintyActivistScore() {
+        return activist/(double)getAll()/1.00;
     }
 
-    public double percentTheoristScore() {
-        return Math.round(theorist/(double)getAll() * 100.00);
+    public double certaintyTheoristScore() {
+        return theorist/(double)getAll()/1.00;
     }
 
-    public double percentPragmatistScore() {
-        return Math.round( pragmatist/(double)getAll() * 100.00);
+    public double certaintyPragmatistScore() {
+        return pragmatist/(double)getAll()/1.00;
     }
 
-    public double percentReflectorScore() {
-        return Math.round(reflector/(double)getAll() * 100.00);
+    public double certaintyReflectorScore() {
+        return reflector/(double)getAll()/1.00;
     }
 
-
-    //Setters: Used for TeacherUI to read from a File
-    public void setActivist(int a) {
-        activist = a;
+    // Returns the score of all learning styles: not useful outside of class
+    private int getAll() {
+        return activist + theorist + pragmatist + reflector;
     }
-
-    public void setTheorist(int a) {
-        theorist = a;
-    }
-
-    public void setPragmatist(int a) {
-        pragmatist = a;
-    }
-
-    public void setReflector(int a) {
-        reflector = a;
-    }
-
-
 
 }

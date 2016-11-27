@@ -1,7 +1,7 @@
 package ubc.cogs200.project.model;
 
 /**
- * Created by Aaron on 11/10/2016.
+ * A Student
  */
 public class Student {
 
@@ -13,12 +13,6 @@ public class Student {
         this.name = name;
         this.studentNumber = studentNumber;
         this.profile = new StudentProfile();
-    }
-
-    public Student(String name, String studentNumber, StudentProfile profile) {
-        this.name = name;
-        this.studentNumber = studentNumber;
-        this.profile = profile;
     }
 
     public String getName() {
