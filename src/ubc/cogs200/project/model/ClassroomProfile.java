@@ -36,6 +36,25 @@ public class ClassroomProfile {
         return reflectorScore;
     }
 
+    // Percenters:
+    public double percentActivistScore() {return getPercent(activistScore);}
+
+    public double percentTheoristScore() {return getPercent(theoristScore);}
+
+    public double percentPragmatistScore() {return getPercent(pragmatistScore);}
+
+    public double percentReflectorScore() {return getPercent(reflectorScore);}
+
+
+
+    private double addAll() {
+        return activistScore + theoristScore + pragmatistScore + reflectorScore;
+    }
+
+    private double getPercent(double value) {
+        return Math.round(value/addAll()*100);
+    }
+
     public void clearProfile() {
         activistScore = 0;
         theoristScore = 0;
@@ -57,25 +76,4 @@ public class ClassroomProfile {
         pragmatistScore += s.getProfile().certaintyPragmatistScore();
         reflectorScore  += s.getProfile().certaintyReflectorScore();
     }
-
-    // This seems more like UI behaviour -> Better for Cohesion
-    public void getStats() {
-        double total = activistScore + pragmatistScore + theoristScore + reflectorScore;
-        System.out.println("your classroom is:");
-        double activistPercent = activistScore / total * 100.00;
-        System.out.println(activistPercent + "% Activist");
-        double pragmatistPercent = pragmatistScore / total * 100.00;
-        System.out.println(pragmatistPercent + "% Pragmatist");
-        double theoristPercent = theoristScore / total * 100.00;
-        System.out.println(theoristPercent + "% Theorist");
-        double reflectorPercent = reflectorScore / total * 100.00;
-        System.out.println(reflectorPercent + "% Reflector");
-
-    }
-
-    // This seems like behaviour for another class -> Better for Cohesion
-    public void getRecommendations() {
-        System.out.println("No recommendations set yet");
-    }
-
 }

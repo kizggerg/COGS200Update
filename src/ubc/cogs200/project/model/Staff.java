@@ -76,5 +76,20 @@ public class Staff {
         return result;
     }
 
+    public Classroom getClassStudentIsIn(Student s) {
+        Classroom result = null;
+
+        for (Teacher t : teachers) {
+            for (Classroom classroom : t.getClassrooms()) {
+                if (classroom.containsStudent(s)) {
+                    result = classroom;
+                }
+            }
+
+        }
+
+        return result;
+    }
+
 
 }

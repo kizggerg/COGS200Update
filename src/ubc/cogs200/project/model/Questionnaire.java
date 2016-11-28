@@ -1,8 +1,6 @@
 package ubc.cogs200.project.model;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A Questionnaire given to Students to Test their Learning Styles.
@@ -28,6 +26,12 @@ public class Questionnaire implements Iterable<Question> {
 
     public void removeQuestion(Question q) {
         questions.remove(q);
+    }
+
+    public List<Question> getQuestions() {
+        List<Question> result = new ArrayList<>();
+        result.addAll(questions);
+        return result;
     }
 
     @Override

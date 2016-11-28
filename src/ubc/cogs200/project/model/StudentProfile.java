@@ -60,6 +60,29 @@ public class StudentProfile {
         reflector = a;
     }
 
+
+    public void addScore(String style) {
+        switch (style) {
+            case "activist" : {
+                activist++;
+                break;
+            }
+            case "theorist" : {
+                theorist++;
+                break;
+            }
+            case "pragmatist" : {
+                pragmatist++;
+                break;
+            }
+            case "reflector" : {
+                reflector++;
+                break;
+            }
+            default: break;
+        }
+    }
+
     public void addScoreActivist() {
         activist++;
     }

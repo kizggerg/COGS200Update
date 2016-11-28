@@ -58,6 +58,10 @@ public class Classroom implements Iterable<Student> {
         return null;
     }
 
+    public boolean containsStudent(Student s) {
+        return students.contains(s);
+    }
+
     public void addAllStudent(Set<Student> students) {this.students.addAll(students);}
 
     public void removeStudent(Student s) {students.remove(s);}
@@ -80,4 +84,19 @@ public class Classroom implements Iterable<Student> {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Classroom classroom = (Classroom) o;
+
+        return code.equals(classroom.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
 }
