@@ -1,0 +1,40 @@
+Highlight activities that force students to discuss their thoughts with each other.
+activist
+Form class projects that require students to explain/teach concepts to each other.
+activist
+Encourage collaborative group work.
+activist
+Encourage in-class brainstorming before beginning a new topic.
+activist
+Phrase lesson in term of solving a problem or puzzle.
+activist
+Allow spacing between topics to give time for self-explanation.
+reflector
+Complete each major topic with a review lesson.
+reflector
+Emphasize relations between already taught topics and subjects.
+reflector
+Phrase the lesson in terms of stories and quotes with rich background information.
+reflector
+Offer multiple different perspectives on how to view the lesson in terms of other models and theories.
+reflector
+Introduce new material with examples of applications outside the classroom.
+pragmatist
+Show how specific facts/concepts learned may be interpreted in the real world.
+pragmatist
+Incorporate interactive discussion to arrive at the conclusion of the lesson through a dialogue.
+pragmatist
+Allow students to give each other feedback on their classmate's tests and evaluations.
+pragmatist
+Give as much one-to-one coaching and feedback to each student as you can.
+pragmatist
+Give as many interpretations and differing perspectives of concepts as possible.
+theorist
+Compare and contrast models and theories about the subject and how they connect to the concrete facts.
+theorist
+Begin a lesson with a general big picture idea before delving into details.
+theorist
+Phrase the subject in terms of an overarching model of how to view the world.
+theorist
+Allow students to brainstorm how the subject may be applied in the real world before showing them the true applications of the subject.
+theorist

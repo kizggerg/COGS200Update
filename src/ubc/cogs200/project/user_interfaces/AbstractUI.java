@@ -3,6 +3,7 @@ package ubc.cogs200.project.user_interfaces;
 import org.json.JSONException;
 import ubc.cogs200.project.parsers.DataParser;
 import ubc.cogs200.project.parsers.QuestionsParser;
+import ubc.cogs200.project.parsers.RecommendationParser;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -33,15 +34,18 @@ public abstract class AbstractUI {
         try {
             String questions = "./data/questions.txt";
             String data = "./data/data.json";
+            String recommendations = "./data/recommendations.txt";
 
             QuestionsParser qParser = new QuestionsParser(questions);
             DataParser dParser = new DataParser(data);
+            RecommendationParser rParser = new RecommendationParser(recommendations);
 
             qParser.parse();
             dParser.parse();
+            rParser.parse();
         }
         catch (FileNotFoundException e) {
-            System.out.println("Questions or Data File Not Found");
+            System.out.println("Questions, Data, or Recommendations File Not Found");
             e.printStackTrace();
         }
         catch (JSONException e) {

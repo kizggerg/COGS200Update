@@ -109,7 +109,6 @@ public class StudentUI extends AbstractUI {
         System.out.println(Math.round(student.getProfile().certaintyReflectorScore()*100) + "% of an Reflector Learner.");
         System.out.println("To see what each of these learning styles mean for you, visit http://www2.le.ac.uk/departments/gradschool/training/eresources/teaching/theories/honey-mumford.");
         System.out.println("Have a great day!");
-        //TODO: Parse Data as JSON
     }
 
 }

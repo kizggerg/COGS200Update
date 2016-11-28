@@ -1,8 +1,6 @@
 package ubc.cogs200.project.user_interfaces;
 
-import ubc.cogs200.project.model.Classroom;
-import ubc.cogs200.project.model.Staff;
-import ubc.cogs200.project.model.Teacher;
+import ubc.cogs200.project.model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -116,7 +114,6 @@ public class TeacherUI extends AbstractUI{
 
         System.out.println("Your profile has been created! Please remember you can update your profile at any time!");
         System.out.println("See you again soon :)");
-        //TODO: Write TO JSON FILE.
         System.exit(0);
 
     }
@@ -217,7 +214,6 @@ public class TeacherUI extends AbstractUI{
         }
 
         System.out.println("I have successfully edited your profile!");
-        // TODO: WRITE TO JSON FILE.
         System.out.println("Have a great day :)");
         System.exit(0);
     }
@@ -240,13 +236,21 @@ public class TeacherUI extends AbstractUI{
         System.out.println("There are " + classroom.getNumberOfStudents() + " students in this class.");
         System.out.println();
         System.out.println("Your class is made up of:");
-        System.out.println(theClass.getProfile().percentActivistScore() + "% Activist Learners");
-        System.out.println(theClass.getProfile().percentTheoristScore() + "% Theorist Learners");
-        System.out.println(theClass.getProfile().percentPragmatistScore() + "% Pragmatist Learners");
-        System.out.println(theClass.getProfile().percentReflectorScore() + "% Reflector Learners");
+        double activistPercent = theClass.getProfile().percentActivistScore();
+        double theoristPercent = theClass.getProfile().percentTheoristScore();
+        double pragmatistPercent = theClass.getProfile().percentPragmatistScore();
+        double reflectorPercent = theClass.getProfile().percentReflectorScore();
+        System.out.println(activistPercent   + "% Activist Learners");
+        System.out.println(theoristPercent   + "% Theorist Learners");
+        System.out.println(pragmatistPercent + "% Pragmatist Learners");
+        System.out.println(reflectorPercent  + "% Reflector Learners");
         System.out.println();
         System.out.println("We recommend doing the following things to your lesson plans to match the learning style of the classroom:");
-        System.out.println("TEST TEST TEST"); //TODO: Add recommendations
+        List<Recommendation> recommendations = Recommender.getInstance().recommend(activistPercent, theoristPercent,
+                pragmatistPercent, reflectorPercent);
+        for (Recommendation r : recommendations) {
+            System.out.println(r.getRecommendation());
+        }
         System.out.println();
         System.out.println("Thanks for using our program!");
         System.out.println("Have a great day!");
